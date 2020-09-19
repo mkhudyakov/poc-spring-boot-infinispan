@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<infinispan>
+
+    <jgroups>
+        <stack-file name="jgroupsStack" path="jgroups-udp.xml"/>
+    </jgroups>
+
+    <cache-container statistics="true">
+        <transport stack="jgroupsStack" lock-timeout="600000" cluster="employeeCluster" />
+
+        <replicated-cache name="cacheEmployeeByName" mode="SYNC" statistics="true">
+            <memory>
+                <object size="5" strategy="REMOVE"/>
+            </memory>
+            <expiration lifespan="60000" />
+        </replicated-cache>
+
+        <replicated-cache name="cacheEmployeeByDepartmentAndName" mode="SYNC" statistics="true">
+            <expiration lifespan="60000" />
+        </replicated-cache>
+    </cache-container>
+
+</infinispan>
