@@ -2,6 +2,7 @@
 <infinispan>
 
     <jgroups>
+        <!-- https://github.com/infinispan/infinispan/tree/9.4.x/core/src/main/resources/default-configs  -->
         <stack-file name="jgroupsStack" path="jgroups-udp.xml"/>
     </jgroups>
 
